@@ -13,25 +13,20 @@
     <div class="code" id="codeDisplay">
         <pre><code  id="code"></code></pre>
         <button type="button" id="closeButton" data-state="1">Close</button>
-        <script>
-            const codeDisplay = document.getElementById('codeDisplay');
-            const closeButton = document.getElementById('closeButton');
-            closeButton.addEventListener('click', () => {
-                codeDisplay.style.display = "none";
-            })
-        </script>
     </div>
     <section class="blockyBackground">
         <h1>Blocky Background</h1>
         <p>A template for a background that makes blocks appear on hover</p>
         <div class="blockyDisplay blockContainer" id="blockyDisplay">
-            <script>
-                createBackgroundBlocks(document.getElementById('blockyDisplay'));
-            </script>
         </div>
         <button type="button" id="blockyGetCode" data-code="blockyBackground/index.js">Get Code</button>
         <button type="button" id="blockyFullDemo">View full demo</button>
-        <script>
+    </section>
+    <script src="./prism.js"></script>
+    <script src="./blockyBackground/index.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
             const blockyFullDemo = document.getElementById('blockyFullDemo');
             const blockyGetCode = document.getElementById('blockyGetCode');
             blockyGetCode.addEventListener('click', () => {
@@ -42,10 +37,14 @@
             blockyFullDemo.addEventListener('click', () => {
                 location.href = "blockyBackground/index.html"
             })
-        </script>
-    </section>
-    <script src="./prism.js"></script>
-    <script src="./blockyBackground/index.js"></script>
-    <script src="./index.js"></script>
+
+            createBackgroundBlocks(document.getElementById('blockyDisplay'));
+            const codeDisplay = document.getElementById('codeDisplay');
+            const closeButton = document.getElementById('closeButton');
+            closeButton.addEventListener('click', () => {
+                codeDisplay.style.display = "none";
+            })
+        })
+    </script>
 </body>
 </html>
