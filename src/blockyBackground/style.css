@@ -1,0 +1,13 @@
+
+
+
+main {
+    text-align: center;
+    pointer-events: none; /* Will make bg have hover animation, even if under something */
+    z-index: 2;
+}
+p {
+    pointer-events: none; /* This elements wont have mouse events */
+    font-size: large;
+}
+

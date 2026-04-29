@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Headers</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header1.css">
+    <link rel="stylesheet" href="header2.css">
 </head>
 <body>
-$END$
+<div class="headerContainer">
+    <header id="header1">
+        <img src="logo.svg" alt="Logo from https://www.svgrepo.com/svg/535115/alien" aria-label="Go to main page" onclick="location.href='../index.html'">
+        <h1>header 1</h1>
+        <img src="theme1.svg" alt="Logo from https://www.svgrepo.com/svg/535508/moon" id="themeSwitch" data-theme-state="1" aria-label="Switch theme">
+        <script>
+            const themeLogo = document.getElementById('themeSwitch');
+            themeLogo.addEventListener("click", () => {
+                console.log("Please add your theme switch function")
+                if (themeLogo.dataset.themeState === "1") {
+                    themeLogo.src = "theme2.svg";
+                    themeLogo.alt = "Logo from https://www.svgrepo.com/svg/535669/sun"
+                    themeLogo.dataset.themeState = "2";
+                } else {
+                    themeLogo.src = "theme1.svg";
+                    themeLogo.alt = "Logo from https://www.svgrepo.com/svg/535508/moon"
+                    themeLogo.dataset.themeState = "1";
+                }
+            })
+        </script>
+    </header>
+</div>
+<div class="headerContainer">
+    <header id="header2">
+        <h1>header 2</h1>
+    </header>
+</div>
+<div class="headerContainer">
+    <header id="header3">
+        <h1>header 3</h1>
+    </header>
+</div>
+<div class="headerContainer">
+    <header id="header4">
+        <h1>header 4</h1>
+    </header>
+</div>
 </body>
 </html>

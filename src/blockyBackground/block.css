@@ -1,0 +1,33 @@
+:root {
+    --bg-main-color: #435e79;
+    --bg-block-color: #3c556e;
+    --bg-block-hover-color: #2c3e50;
+}
+/* Add this class to make element interactable. Will disable bg hover animation under it */
+.clickable {
+    pointer-events: all;
+}
+
+/* Block */
+div.blockContainer {
+    background-color: var(--bg-main-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+div.block {
+    background-color: var(--bg-block-color);
+    position: relative;
+    z-index: 0;
+    transition: background-color 5s ease-in-out; /* change the time value to set the Hover Off transition */
+}
+div.block:hover {
+    background-color: var(--bg-block-hover-color);
+    transition: background-color .5s ease-in-out; /* change the time value to set the Hover On transition */
+}

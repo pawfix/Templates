@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Templates</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="blockyBackground/block.css">
 </head>
 <body>
-$END$
+    <div class="code" id="codeDisplay">
+        <pre><code  id="code"></code></pre>
+    </div>
+    <section class="blockyBackground">
+        <h1>Blocky Background</h1>
+        <p>A template for a background that makes blocks appear on hover</p>
+        <div class="blockyDisplay blockContainer" id="blockyDisplay">
+            <script src="blockyBackground/index.ts" type="module"></script>
+            <script>
+                window.addEventListener('DOMContentLoaded', () => {
+                    window.globalCreateBlock(
+                        document.getElementById('blockyDisplay')
+                    );
+                });
+            </script>
+        </div>
+        <button type="button" id="blockyGetCode" data-code="blockyBackground/index.ts">Get Code</button>
+        <button type="button" id="blockyFullDemo">View full demo</button>
+        <script>
+            const blockyGetCode = document.getElementById('blockyGetCode');
+            const codeDisplay = document.getElementById('codeDisplay')
+            blockyGetCode.addEventListener('click', () => {
+                codeDisplay.style.display = 'block'
+                displayCode(blockyGetCode.dataset.code)
+            })
+        </script>
+    </section>
+    <script src="prism.js"></script>
+    <script src="index.ts"></script>
 </body>
 </html>

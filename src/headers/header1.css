@@ -1,0 +1,27 @@
+header#header1 {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    height: 75px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+header#header1 h1 {
+    font-size: 35px;
+    margin: 20px;
+    font-weight: bold;
+    font-family: "Adwaita Mono", monospace;
+}
+header#header1 img {
+    height: 65px;
+    margin: 5px;
+}
+header#header1 img#themeSwitch {
+    height: 45px;
+    margin: 15px;
+}
+header#header1 img:hover {
+    cursor: pointer;
+}

@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Blocky Background</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="block.css">
 </head>
 <body>
-$END$
+    <div class="blockContainer" id="blockyDisplay">
+        <script src="index.ts">
+
+        </script>
+        <script>createBackgroundBlocks(document.getElementById('blockyDisplay'));</script>
+    </div>
+    <main>
+        <h1>Blocky Background</h1>
+        <p>Hover on blocks for animations</p>
+        <p class="clickable">To change block height/width, edit the "Block Width" in js</p>
+        <p>To change background color, block color and hover color, change variables in CSS in ::root</p>
+    </main>
 </body>
 </html>
