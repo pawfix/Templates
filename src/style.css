@@ -36,11 +36,17 @@ div.code {
     margin: 25vh 25vw;
     overflow: auto;
     display: none;
+    padding: 25px;
 }
-code {
-    word-wrap: pre !important;
+div.code button#closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+div.code button.copy-to-clipboard-button {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-pre {
-    white-space: pre-wrap !important;
-}
+
