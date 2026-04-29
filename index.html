@@ -10,7 +10,6 @@
 </head>
 <body>
 
-    <script src="index.js"></script>
     <div class="code" id="codeDisplay">
         <pre><code  id="code"></code></pre>
         <button type="button" id="closeButton" data-state="1">Close</button>
@@ -26,8 +25,6 @@
         <h1>Blocky Background</h1>
         <p>A template for a background that makes blocks appear on hover</p>
         <div class="blockyDisplay blockContainer" id="blockyDisplay">
-            <script src="blockyBackground/index.js"></script>
-
             <script>
                 createBackgroundBlocks(document.getElementById('blockyDisplay'));
             </script>
@@ -48,5 +45,7 @@
         </script>
     </section>
     <script src="prism.js"></script>
+    <script src="blockyBackground/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
