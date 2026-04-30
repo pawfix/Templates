@@ -54,7 +54,7 @@ div.code button.copy-to-clipboard-button {
 }
 
 
-div.interractWrap {
+div.interactWrap {
     padding: 15px;
     background-color: #93a1a1;
     display: flex;
@@ -63,11 +63,24 @@ div.interractWrap {
     scroll-behavior: smooth;
     gap: 10px;
 }
-div.interractWrap button {
+div.interactWrap button {
     width: 100%;
     height: 50px;
 }
-div.interractWrap input,
-div.interractWrap label {
+div.interactWrap input,
+div.interactWrap label {
     width: 100%;
+}
+div.exampleButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.exampleButtons button,
+div.exampleButtons select{
+    width: 90%;
+    height: 45px;
+    text-align: center;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup System</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>An example popup system</h1>
+<select id="warningLevel">
+    <option value="warning">Warning</option>
+    <option value="alert">Alert</option>
+    <option value="info">Info</option>
+</select>
+<button class="popUpMake" data-position="center">Create a pop-up in the Center</button>
+<button class="popUpMake" data-position="top">Create a pop-up in the Top</button>
+<button class="popUpMake" data-position="bottom">Create a pop-up in the Bottom</button>
+<button class="popUpMake" data-position="left">Create a pop-up in the Left</button>
+<button class="popUpMake" data-position="right">Create a pop-up in the Right</button>
+<button class="popUpMake" data-position="top-left">Create a pop-up in the Top Left</button>
+<button class="popUpMake" data-position="top-right">Create a pop-up in the Top Right</button>
+<button class="popUpMake" data-position="bottom-left">Create a pop-up in the Bottom Left</button>
+<button class="popUpMake" data-position="bottom-right">Create a pop-up in the Bottom Right</button>
+
+<script src="index.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.popUpMake').forEach(element => {
+            element.addEventListener('click', function() {
+                const warningLevel = document.getElementById('warningLevel').value;
+                createPopup(document.body, element.dataset.position, warningLevel, "Example popup", `Example content of a popup of level ${warningLevel}`, 1500);
+            });
+        })
+    })
+</script>
+</body>
+</html>
