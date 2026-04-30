@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="prism.css">
     <link rel="stylesheet" href="blockyBackground/block.css">
     <link rel="stylesheet" href="prism2.css">
+    <link rel="stylesheet" href="popUp/popup.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
         <p>A template for a background that makes blocks appear on hover</p>
         <div class="blockyDisplay blockContainer displayPreview" id="blockyDisplay">
         </div>
-        <div class="blockyWrap interractWrap">
+        <div class="blockyWrap interactWrap">
             <label for="blockHeightRange">Block Height</label>
             <input type="range" name="blockHeight" id="blockHeightRange" value="100" min="20" max="500">
             <label for="blockWidthRange">Block Width</label>
@@ -32,7 +33,7 @@
         <h1>Gradient Background</h1>
         <p>A template for a Gradient background, that follows your cursor</p>
         <div class="gradientDisplay displayPreview" id="gradientDisplay"></div>
-        <div class="gradientWrap interractWrap">
+        <div class="gradientWrap interactWrap">
             <label for="gradientMainColor">Main color</label>
             <input type="color" name="gradientMainColor" id="gradientMainColor">
             <label for="gradientSecondaryColor">Secondary color</label>
@@ -41,11 +42,35 @@
             <button id="gradientFullDemo">View Full Demo</button>
         </div>
     </section>
+    <section class="popUpSystem">
+        <h1>A Pop-up system</h1>
+        <div class="exampleButtons displayPreview">
+            <select id="warningLevel">
+                <option value="warning">Warning</option>
+                <option value="alert">Alert</option>
+                <option value="info">Info</option>
+            </select>
+            <button class="popUpMake" data-position="center">Create a pop-up in the Center</button>
+            <button class="popUpMake" data-position="top">Create a pop-up in the Top</button>
+            <button class="popUpMake" data-position="bottom">Create a pop-up in the Bottom</button>
+            <button class="popUpMake" data-position="left">Create a pop-up in the Left</button>
+            <button class="popUpMake" data-position="right">Create a pop-up in the Right</button>
+            <button class="popUpMake" data-position="top-left">Create a pop-up in the Top Left</button>
+            <button class="popUpMake" data-position="top-right">Create a pop-up in the Top Right</button>
+            <button class="popUpMake" data-position="bottom-left">Create a pop-up in the Bottom Left</button>
+            <button class="popUpMake" data-position="bottom-right">Create a pop-up in the Bottom Right</button>
+        </div>
+        <div class="popUpWrap interactWrap">
+            <button id="popUpCode" data-code="popUp/index.js">Get Code</button>
+            <button id="popUpFull">View Full Demo</button>
+        </div>
+    </section>
 
     <script src="./prism.js"></script>
     <script src="./gradientBackground/index.js"></script>
     <script src="./blockyBackground/index.js"></script>
     <script src="./index.js"></script>
+    <script src="popUp/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const blockWidthRange = document.getElementById('blockWidthRange');
@@ -92,6 +117,22 @@
             })
             blockWidthRange.addEventListener('change', () => {
                 createBackgroundBlocks(document.getElementById('blockyDisplay'), blockHeightRange.value, blockWidthRange.value);
+            })
+
+            const popUpCode = document.getElementById('popUpCode');
+            const popUpFullDemo = document.getElementById('popUpFull');
+            popUpCode.addEventListener('click', () => {
+                displayCode(popUpCode.dataset.code);
+            })
+            popUpFullDemo.addEventListener('click', () => {
+                location.href = "popUp/index.html"
+            })
+
+            document.querySelectorAll('.popUpMake').forEach(element => {
+                element.addEventListener('click', function() {
+                    const warningLevel = document.getElementById('warningLevel').value;
+                    createPopup(document.body, element.dataset.position, warningLevel, "Example popup", `Example content of a popup of level ${warningLevel}`, 1500);
+                });
             })
         })
     </script>
