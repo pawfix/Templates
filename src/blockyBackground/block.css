@@ -29,5 +29,5 @@ div.block {
 }
 div.block:hover {
     background-color: var(--bg-block-hover-color);
-    transition: background-color .5s ease-in-out; /* change the time value to set the Hover On transition */
+    transition: background-color .25s ease-in-out; /* change the time value to set the Hover On transition */
 }
