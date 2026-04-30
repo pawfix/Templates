@@ -17,20 +17,42 @@
     <section class="blockyBackground">
         <h1>Blocky Background</h1>
         <p>A template for a background that makes blocks appear on hover</p>
-        <div class="blockyDisplay blockContainer" id="blockyDisplay">
+        <div class="blockyDisplay blockContainer displayPreview" id="blockyDisplay">
         </div>
-        <button type="button" id="blockyGetCode" data-code="blockyBackground/index.js">Get Code</button>
-        <button type="button" id="blockyFullDemo">View full demo</button>
+        <div class="blockyWrap interractWrap">
+            <label for="blockHeightRange">Block Height</label>
+            <input type="range" name="blockHeight" id="blockHeightRange" value="100" min="20" max="500">
+            <label for="blockWidthRange">Block Width</label>
+            <input type="range" name="blockWidth" id="blockWidthRange" value="100" min="20" max="500">
+            <button type="button" id="blockyGetCode" data-code="blockyBackground/index.js">Get Code</button>
+            <button type="button" id="blockyFullDemo">View full demo</button>
+        </div>
     </section>
+    <section class="gradientBackground">
+        <h1>Gradient Background</h1>
+        <p>A template for a Gradient background, that follows your cursor</p>
+        <div class="gradientDisplay displayPreview" id="gradientDisplay"></div>
+        <div class="gradientWrap interractWrap">
+            <label for="gradientMainColor">Main color</label>
+            <input type="color" name="gradientMainColor" id="gradientMainColor">
+            <label for="gradientSecondaryColor">Secondary color</label>
+            <input type="color" name="gradientSecondaryColor" id="gradientSecondaryColor">
+            <button id="gradientGetCode" data-code="gradientBackground/index.js">Get Code</button>
+            <button id="gradientFullDemo">View Full Demo</button>
+        </div>
+    </section>
+
     <script src="./prism.js"></script>
+    <script src="./gradientBackground/index.js"></script>
     <script src="./blockyBackground/index.js"></script>
     <script src="./index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const blockWidthRange = document.getElementById('blockWidthRange');
+            const blockHeightRange = document.getElementById('blockHeightRange');
             const blockyFullDemo = document.getElementById('blockyFullDemo');
             const blockyGetCode = document.getElementById('blockyGetCode');
             blockyGetCode.addEventListener('click', () => {
-                codeDisplay.style.display = 'block'
 
                 displayCode(blockyGetCode.dataset.code)
             })
@@ -38,11 +60,38 @@
                 location.href = "blockyBackground/index.html"
             })
 
-            createBackgroundBlocks(document.getElementById('blockyDisplay'));
+            const gradientGetCode = document.getElementById('gradientGetCode');
+            gradientGetCode.addEventListener('click', () => {
+                displayCode(gradientGetCode.dataset.code);
+            })
+            const gradientViewDemo = document.getElementById('gradientFullDemo');
+            gradientViewDemo.addEventListener('click', () => {
+                location.href = "gradientBackground/index.html"
+            })
+
+            const gradientMainColor = document.getElementById('gradientMainColor');
+            const gradientSecondaryColor = document.getElementById('gradientSecondaryColor');
+            gradientMainColor.addEventListener('change', () => {
+                createGradientBackground(document.getElementById('gradientDisplay'), gradientMainColor.value, gradientSecondaryColor.value);
+            })
+
+            gradientSecondaryColor.addEventListener('change', () => {
+                createGradientBackground(document.getElementById('gradientDisplay'), gradientMainColor.value, gradientSecondaryColor.value);
+            })
+
+            createGradientBackground(document.getElementById('gradientDisplay'), "red", "blue");
+
+            createBackgroundBlocks(document.getElementById('blockyDisplay'), 100, 100);
             const codeDisplay = document.getElementById('codeDisplay');
             const closeButton = document.getElementById('closeButton');
             closeButton.addEventListener('click', () => {
                 codeDisplay.style.display = "none";
+            })
+            blockHeightRange.addEventListener('change', () => {
+                createBackgroundBlocks(document.getElementById('blockyDisplay'), blockHeightRange.value, blockWidthRange.value);
+            })
+            blockWidthRange.addEventListener('change', () => {
+                createBackgroundBlocks(document.getElementById('blockyDisplay'), blockHeightRange.value, blockWidthRange.value);
             })
         })
     </script>

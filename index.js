@@ -1,5 +1,8 @@
 async function displayCode(fileName) {
 
+    const codeDisplay = document.getElementById('codeDisplay');
+
+
     let code = document.getElementById("code");
     const text = await loadFile(fileName)
 
@@ -24,6 +27,9 @@ async function displayCode(fileName) {
     } else {
         code.className = "language-html"
     }
+
+
+    codeDisplay.style.display = 'block'
 
     if (code) {
         code.textContent = text;
